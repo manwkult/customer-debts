@@ -22,10 +22,7 @@ jobs:
       with:
         java-version: '11'
         distribution: 'adopt'
-
-    - name: Sed gradlew
-      run: sed $'s/\r$//' gradlew gradlew2
     - name: Grant execute permission for gradlew
-      run: chmod +x ./gradlew2
+      run: chmod +x ./gradlew
     - name: Build with Gradle
-      run: ./gradlew2 build
+      run: ./gradlew build
