@@ -1,0 +1,51 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis
+  namespace: default
+  labels:
+    app.evertec.com.co/env: dev
+    app.evertec.com.co/application-name: customer-debts-redis
+spec:
+  selector:
+    app: customer-debts-redis
+    pod: redis-pod
+  ports:
+    - name: http
+      targetPort: 80
+      port: 6379
+      nodePort: 30000
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-deployment
+  namespace: default
+  labels:
+    app.evertec.com.co/env: dev
+    app.evertec.com.co/application-name: customer-debts-redis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      pod: redis-pod
+  template:
+    metadata:
+      labels:
+        app: customer-debts-redis
+        pod: redis-pod
+        app.evertec.com.co/application-name: customer-debts-redis
+    spec:
+      containers:
+        - name: redis-container
+          image: redis
+          resources:
+            requests:
+              memory: "80Mi"
+              cpu: "50m"
+            limits:
+              memory: "100Mi"
+              cpu: "80m"
+          ports:
+            - containerPort: 6379

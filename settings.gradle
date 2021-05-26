@@ -1,0 +1,16 @@
+rootProject.name = 'customer-debts'
+
+include ":app-service"
+project(':app-service').projectDir = file('./applications/app-service')
+include ":model"
+project(':model').projectDir = file('./domain/model')
+include ":usecase"
+project(':usecase').projectDir = file('./domain/usecase')
+include ":postgres-repository"
+project(':postgres-repository').projectDir = file('./infrastructure/driven-adapters/postgres-repository')
+include ":api-rest"
+project(':api-rest').projectDir = file('./infrastructure/entry-points/api-rest')
+include ":customer-debts-log"
+project(':customer-debts-log').projectDir = file('./infrastructure/helpers/customer-debts-log')
+include ":jwt-security"
+project(':jwt-security').projectDir = file('./infrastructure/security/jwt-security')

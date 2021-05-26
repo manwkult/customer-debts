@@ -1,0 +1,5 @@
+dependencies {
+    compile project(':model')
+
+    implementation project(':customer-debts-log')
+}

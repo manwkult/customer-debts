@@ -1,0 +1,56 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres
+  namespace: default
+  labels:
+    app.evertec.com.co/env: dev
+    app.evertec.com.co/application-name: customer-debts-postgres
+spec:
+  selector:
+    app: customer-debts-postgres
+    pod: postgres-pod
+  ports:
+    - name: http
+      targetPort: 80
+      port: 5432
+      nodePort: 32000
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres-deployment
+  namespace: default
+  labels:
+    app.evertec.com.co/env: dev
+    app.evertec.com.co/application-name: customer-debts-postgres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      pod: postgres-pod
+  template:
+    metadata:
+      labels:
+        app: customer-debts-postgres
+        pod: postgres-pod
+        app.evertec.com.co/application-name: customer-debts-postgres
+    spec:
+      containers:
+        - name: postgres-container
+          image: postgres
+          resources:
+            requests:
+              memory: "80Mi"
+              cpu: "50m"
+            limits:
+              memory: "100Mi"
+              cpu: "80m"
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_PASSWORD
+              value: Z3v*&AZgz87w
+            - name: POSTGRES_DB
+              value: customerdebtsdb

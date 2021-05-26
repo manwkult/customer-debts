@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/applications/app-service" />
+            <option value="$PROJECT_DIR$/domain/model" />
+            <option value="$PROJECT_DIR$/domain/usecase" />
+            <option value="$PROJECT_DIR$/infrastructure/driven-adapters/postgres-repository" />
+            <option value="$PROJECT_DIR$/infrastructure/entry-points/api-rest" />
+            <option value="$PROJECT_DIR$/infrastructure/helpers/customer-debts-log" />
+            <option value="$PROJECT_DIR$/infrastructure/security/jwt-security" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>
