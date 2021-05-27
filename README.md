@@ -17,4 +17,4 @@ Los entry points representan los puntos de entrada de la aplicación o el inicio
 
 #### Domain-Driven Design
 
-![Alt text](https://miro.medium.com/max/1718/1*yR4C1B-YfMh5zqpbHzTyag.png "Title")
+[![N|Solid](https://miro.medium.com/max/1718/1*yR4C1B-YfMh5zqpbHzTyag.png "Title")
