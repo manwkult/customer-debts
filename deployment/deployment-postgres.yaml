@@ -14,8 +14,6 @@ spec:
     - name: http
       targetPort: 80
       port: 5432
-      nodePort: 32000
-  type: NodePort
 ---
 apiVersion: apps/v1
 kind: Deployment
