@@ -3,6 +3,35 @@
 
 name: Java CI with Gradle
 
+env:
+  SERVICE: customer-debts
+  NAMESPACE: default
+  ENVIRONMENT: env
+  APPLICATION_NAME: customer-debts
+  CONTAINER_PORT: 8080
+  SERVICE_PORT: 80
+  REPLICAS: 1
+  IMAGE: manwkult/customer-debts:${{ github.sha }}
+  MEMORY_REQUEST: 200
+  CPU_REQUEST: 100
+  MEMORY_LIMITS: 400
+  CPU_LIMITS: 200
+  READINESS_PROBE_PATH: /api/v1/health
+  READINESS_PROBE_PORT: 8080
+  READINESS_PROBE_PERIOD_SECONDS: 10
+  READINESS_PROBE_FAILURE_THRESHOLD: 3
+  READINESS_PROBE_TIMEOUT_SECONDS: 5
+  READINESS_PROBE_SUCCESS_THRESHOLD: 1
+  READINESS_PROBE_INITIAL_DELAY_SECONDS: 20
+  LIVENESS_PROBE_PATH: /api/v1/health
+  LIVENESS_PROBE_PORT: 8080
+  LIVENESS_PROBE_PERIOD_SECONDS: 10
+  LIVENESS_PROBE_FAILURE_THRESHOLD: 3
+  LIVENESS_PROBE_TIMEOUT_SECONDS: 5
+  LIVENESS_PROBE_SUCCESS_THRESHOLD: 1
+  LIVENESS_PROBE_INITIAL_DELAY_SECONDS: 20
+  CONFIGMAP: customer-debts
+
 on:
   push:
     branches: [ main ]
@@ -41,46 +70,47 @@ jobs:
       uses: docker/build-push-action@v2
       with:
           context: .
+          push: true
           tags: ${{ github.sha }}
-
-    - name: Set Up k8s - Digital Ocean
-      uses: matootie/dokube@v1.3.4
-      with:
-        personalAccessToken: ${{ secrets.DIGITALOCEAN_TOKEN }}
-        clusterName: k8s-customer-debts
 
     - name: Replace Tokens
       uses: cschleiden/replace-tokens@v1
       with:
         files: '["./deployment/k8/deployment.yaml"]'
       env:
-        service: ${{ secrets.SERVICE }}
-        namespace: ${{ secrets.NAMESPACE }}
-        env: ${{ secrets.ENVIRONMENT }}
-        application-name: ${{ secrets.APPLICATION_NAME }}
-        container-port: ${{ secrets.CONTAINER_PORT }}
-        service-port: ${{ secrets.SERVICE_PORT }}
-        replicas: ${{ secrets.REPLICAS }}
-        image: ${{ secrets.IMAGE }}
-        memory-request: ${{ secrets.MEMORY_REQUEST }}
-        cpu-request: ${{ secrets.CPU_REQUEST }}
-        memory-limits: ${{ secrets.MEMORY_LIMITS }}
-        cpu-limits: ${{ secrets.CPU_LIMITS }}
-        readinessProbe-path: ${{ secrets.READINESS_PROBE_PATH }}
-        readinessProbe-port: ${{ secrets.READINESS_PROBE_PORT }}
-        readinessProbe-periodSeconds: ${{ secrets.READINESS_PROBE_PERIOD_SECONDS }}
-        readinessProbe-failureThreshold: ${{ secrets.READINESS_PROBE_FAILURE_THRESHOLD }}
-        readinessProbe-timeoutSeconds: ${{ secrets.READINESS_PROBE_TIMEOUT_SECONDS }}
-        readinessProbe-successThreshold: ${{ secrets.READINESS_PROBE_SUCCESS_THRESHOLD }}
-        readinessProbe-initialDelaySeconds: ${{ secrets.READINESS_PROBE_INITIAL_DELAY_SECONDS }}
-        livenessProbe-path: ${{ secrets.READINESS_PROBE_PATH }}
-        livenessProbe-port: ${{ secrets.READINESS_PROBE_PORT }}
-        livenessProbe-periodSeconds: ${{ secrets.READINESS_PROBE_PERIOD_SECONDS }}
-        livenessProbe-failureThreshold: ${{ secrets.READINESS_PROBE_FAILURE_THRESHOLD }}
-        livenessProbe-timeoutSeconds: ${{ secrets.READINESS_PROBE_TIMEOUT_SECONDS }}
-        livenessProbe-successThreshold: ${{ secrets.READINESS_PROBE_SUCCESS_THRESHOLD }}
-        livenessProbe-initialDelaySeconds: ${{ secrets.READINESS_PROBE_INITIAL_DELAY_SECONDS }}
-        configmap: ${{ secrets.CONFIGMAP }}
+        service: ${{ env.SERVICE }}
+        namespace: ${{ env.NAMESPACE }}
+        env: ${{ env.ENVIRONMENT }}
+        application-name: ${{ env.APPLICATION_NAME }}
+        container-port: ${{ env.CONTAINER_PORT }}
+        service-port: ${{ env.SERVICE_PORT }}
+        replicas: ${{ env.REPLICAS }}
+        image: ${{ env.IMAGE }}
+        memory-request: ${{ env.MEMORY_REQUEST }}
+        cpu-request: ${{ env.CPU_REQUEST }}
+        memory-limits: ${{ env.MEMORY_LIMITS }}
+        cpu-limits: ${{ env.CPU_LIMITS }}
+        readinessProbe-path: ${{ env.READINESS_PROBE_PATH }}
+        readinessProbe-port: ${{ env.READINESS_PROBE_PORT }}
+        readinessProbe-periodSeconds: ${{ env.READINESS_PROBE_PERIOD_SECONDS }}
+        readinessProbe-failureThreshold: ${{ env.READINESS_PROBE_FAILURE_THRESHOLD }}
+        readinessProbe-timeoutSeconds: ${{ env.READINESS_PROBE_TIMEOUT_SECONDS }}
+        readinessProbe-successThreshold: ${{ env.READINESS_PROBE_SUCCESS_THRESHOLD }}
+        readinessProbe-initialDelaySeconds: ${{ env.READINESS_PROBE_INITIAL_DELAY_SECONDS }}
+        livenessProbe-path: ${{ env.READINESS_PROBE_PATH }}
+        livenessProbe-port: ${{ env.READINESS_PROBE_PORT }}
+        livenessProbe-periodSeconds: ${{ env.READINESS_PROBE_PERIOD_SECONDS }}
+        livenessProbe-failureThreshold: ${{ env.READINESS_PROBE_FAILURE_THRESHOLD }}
+        livenessProbe-timeoutSeconds: ${{ env.READINESS_PROBE_TIMEOUT_SECONDS }}
+        livenessProbe-successThreshold: ${{ env.READINESS_PROBE_SUCCESS_THRESHOLD }}
+        livenessProbe-initialDelaySeconds: ${{ env.READINESS_PROBE_INITIAL_DELAY_SECONDS }}
+        configmap: ${{ env.CONFIGMAP }}
+
+    - name: Set Up k8s - Digital Ocean
+      uses: matootie/dokube@v1.3.4
+      with:
+        personalAccessToken: ${{ secrets.DIGITALOCEAN_TOKEN }}
+        clusterName: k8s-customer-debts
 
     - name: Deploy
       run: kubectl apply -f ./deployment/k8/deployment.yaml
