@@ -53,7 +53,6 @@ spec:
               path: #{readinessProbe-path}#
               port: #{readinessProbe-port}#
             periodSeconds: #{readinessProbe-periodSeconds}#
-            failureThreshold: #{readinessProbe-failureThreshold}#
             timeoutSeconds: #{readinessProbe-timeoutSeconds}#
             successThreshold: #{readinessProbe-successThreshold}#
             initialDelaySeconds: #{readinessProbe-initialDelaySeconds}#
