@@ -31,7 +31,7 @@ spec:
   template:
     metadata:
       labels:
-        app: #{project-name}#
+        app: #{application-name}#
         pod: #{service}#-pod
         app.evertec.com.co/application-name: #{application-name}#
     spec:

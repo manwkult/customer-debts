@@ -31,6 +31,12 @@ env:
   LIVENESS_PROBE_SUCCESS_THRESHOLD: 1
   LIVENESS_PROBE_INITIAL_DELAY_SECONDS: 20
   CONFIGMAP: customer-debts
+  POSTGRES_HOST: postgres
+  POSTGRES_PORT: 5432
+  POSTGRES_DBNAME: customerdebtsdb
+  POSTGRES_USERNAME: postgres
+  REDIS_HOST: redis
+  REDIS_PORT: 6379
 
 on:
   push:
@@ -105,6 +111,17 @@ jobs:
         livenessProbe-successThreshold: ${{ env.READINESS_PROBE_SUCCESS_THRESHOLD }}
         livenessProbe-initialDelaySeconds: ${{ env.READINESS_PROBE_INITIAL_DELAY_SECONDS }}
         configmap: ${{ env.CONFIGMAP }}
+        postgres-host: ${{ env.POSTGRES_HOST }}
+        postgres-port: ${{ env.POSTGRES_PORT }}
+        postgres-dbname: ${{ env.POSTGRES_DBNAME }}
+        postgres-username: ${{ env.POSTGRES_USERNAME }}
+        postgres-password: ${{ secrets.POSTGRES_PASSWORD }}
+        redis-host: ${{ env.REDIS_HOST }}
+        redis-port: ${{ env.REDIS_PORT }}
+        jwt-secret-key: ${{ secrets.JWT_SECRET_KEY }}
+
+    - name: Validate Configmap
+      run: cat ./deployment/k8/configmap.yaml
 
     - name: Validate Deployment
       run: cat ./deployment/k8/deployment.yaml
@@ -116,4 +133,4 @@ jobs:
         clusterName: k8s-customer-debts
 
     - name: Deploy
-      run: kubectl apply -f ./deployment/k8/deployment.yaml
+      run: kubectl apply -f ./deployment/k8
