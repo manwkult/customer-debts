@@ -20,19 +20,19 @@ data:
         hibernate:
           ddl-auto: validate
       datasource:
-        url: jdbc:postgresql://#{postgres-host}:#{postgres-port}/#{postgres-dbname}
-        username: #{postgres-username}
-        password: #{postgres-password}
+        url: jdbc:postgresql://#{postgres-host}#:#{postgres-port}#/#{postgres-dbname}#
+        username: #{postgres-username}#
+        password: #{postgres-password}#
         driverClassName: org.postgresql.Driver
       cache:
         type: redis
       redis:
-        host: #{redis-host}
-        port: #{redis-port}
+        host: #{redis-host}#
+        port: #{redis-port}#
       messages:
         basename: i18n/messages
         encoding: UTF-8
         fallback-to-system-locale: false
     jwt:
       secret:
-        key: #{jwt-secret-key}
+        key: #{jwt-secret-key}#
