@@ -66,6 +66,9 @@ spec:
             timeoutSeconds: #{livenessProbe-timeoutSeconds}#
             periodSeconds: #{livenessProbe-periodSeconds}#
             successThreshold: #{livenessProbe-successThreshold}#
+          env:
+          - name: SPRING_PROFILES_DEFAULT
+            value: #{env}#
           volumeMounts:
             - name: configmap
               mountPath: /app/config
