@@ -4,8 +4,10 @@ server:
   servlet:
     context-path: /api/v1
 spring:
-  CustomerDebt:
+  application:
     name: customer-debts
+  profiles:
+    active: dev
   jpa:
     show-sql: true
     properties:
