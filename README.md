@@ -229,3 +229,15 @@ Se crea un cluster de kubernetes para el despliegue de los diferentes componente
 ├── README.md
 └── settings.gradle
 ```
+
+## Arquitectura
+
+ - spring boot
+ - gradle
+ - validations
+ - i18n
+ - redis
+ - postgres
+ - swagger
+ - log4j2
+ - jwt
