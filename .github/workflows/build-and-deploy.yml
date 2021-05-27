@@ -6,7 +6,7 @@ name: Java CI with Gradle
 env:
   SERVICE: customer-debts
   NAMESPACE: default
-  ENVIRONMENT: env
+  ENVIRONMENT: dev
   APPLICATION_NAME: customer-debts
   CONTAINER_PORT: 8080
   SERVICE_PORT: 80
