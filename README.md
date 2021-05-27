@@ -48,3 +48,184 @@ El pipeline genera el build del proyecto, la imagen de docker y la sube al conta
 ### Cluster de Kubernetes en Digital Ocean
 
 Se crea un cluster de kubernetes para el despliegue de los diferentes componentes de la API y se accede a la API a travez de un balancedor de carga que la misma nube provee
+
+## Estructura de Directorio
+
+```bash
+├── applications
+│   └── app-service
+│       ├── build.gradle
+│       └── src
+│           ├── main
+│           │   ├── java
+│           │   │   └── co
+│           │   │       └── com
+│           │   │           └── evertec
+│           │   │               ├── config
+│           │   │               │   ├── SpringSecurityConfig.java
+│           │   │               │   ├── SwaggerConfig.java
+│           │   │               │   └── UseCaseConfig.java
+│           │   │               └── MainApplication.java
+│           │   └── resources
+│           │       ├── application.yaml
+│           │       ├── i18n
+│           │       │   ├── messages_en.properties
+│           │       │   └── messages.properties
+│           │       └── log4j2.properties
+│           └── test
+│               ├── java
+│               └── resources
+├── build.gradle
+├── deployment
+│   ├── deployment-postgres.yaml
+│   ├── deployment-redis.yaml
+│   └── k8
+│       ├── configmap.yaml
+│       └── deployment.yaml
+├── Dockerfile
+├── domain
+│   ├── model
+│   │   ├── build.gradle
+│   │   └── src
+│   │       ├── main
+│   │       │   └── java
+│   │       │       └── co
+│   │       │           └── com
+│   │       │               └── evertec
+│   │       │                   └── model
+│   │       │                       ├── Authentication.java
+│   │       │                       ├── common
+│   │       │                       │   └── Constants.java
+│   │       │                       ├── CustomerDebt.java
+│   │       │                       ├── enumerator
+│   │       │                       │   └── UserEnum.java
+│   │       │                       ├── gateway
+│   │       │                       │   ├── CustomerDebtGateway.java
+│   │       │                       │   └── JWTGateway.java
+│   │       │                       └── security
+│   │       │                           ├── Authorities.java
+│   │       │                           └── User.java
+│   │       └── test
+│   │           └── java
+│   └── usecase
+│       ├── build.gradle
+│       └── src
+│           ├── main
+│           │   └── java
+│           │       └── co
+│           │           └── com
+│           │               └── evertec
+│           │                   └── usecase
+│           │                       ├── AuthUseCase.java
+│           │                       ├── CustomerDebtUseCase.java
+│           │                       └── util
+│           │                           └── Util.java
+│           └── test
+│               └── java
+│                   └── co
+│                       └── com
+│                           └── evertec
+│                               └── usecase
+│                                   └── impl
+│                                       └── CustomerDebtUseCaseTest.java
+├── gradle
+│   └── wrapper
+│       ├── gradle-wrapper.jar
+│       └── gradle-wrapper.properties
+├── gradle.properties
+├── gradlew
+├── gradlew.bat
+├── infrastructure
+│   ├── driven-adapters
+│   │   └── postgres-repository
+│   │       ├── build.gradle
+│   │       └── src
+│   │           ├── main
+│   │           │   └── java
+│   │           │       └── co
+│   │           │           └── com
+│   │           │               └── evertec
+│   │           │                   └── postgres
+│   │           │                       ├── adapter
+│   │           │                       │   └── CustomerDebtRepositoryAdapter.java
+│   │           │                       ├── dao
+│   │           │                       │   └── CustomerDebtDAO.java
+│   │           │                       ├── entity
+│   │           │                       │   ├── audit
+│   │           │                       │   │   └── Audit.java
+│   │           │                       │   └── CustomerDebtEntity.java
+│   │           │                       ├── exception
+│   │           │                       │   └── RepositoryResponseEntityExceptionHandler.java
+│   │           │                       └── service
+│   │           │                           └── CustomerDebtService.java
+│   │           └── test
+│   │               └── java
+│   │                   └── co
+│   │                       └── com
+│   │                           └── evertec
+│   │                               └── postgres
+│   │                                   ├── adapter
+│   │                                   │   └── CustomerDebtRepositoryAdapterTest.java
+│   │                                   └── service
+│   │                                       └── CustomerDebtServiceTest.java
+│   ├── entry-points
+│   │   └── api-rest
+│   │       ├── build.gradle
+│   │       └── src
+│   │           ├── main
+│   │           │   └── java
+│   │           │       └── co
+│   │           │           └── com
+│   │           │               └── evertec
+│   │           │                   ├── apirest
+│   │           │                   │   ├── AuthRestController.java
+│   │           │                   │   ├── CustomerDebtRestController.java
+│   │           │                   │   └── HealthRestController.java
+│   │           │                   └── exception
+│   │           │                       └── RestResponseEntityExceptionHandler.java
+│   │           └── test
+│   │               └── java
+│   │                   └── co
+│   │                       └── com
+│   │                           └── evertec
+│   │                               └── apirest
+│   │                                   ├── CustomerDebtRestControllerTest.java
+│   │                                   └── HealthRestControllerTest.java
+│   ├── helpers
+│   │   └── customer-debts-log
+│   │       ├── build.gradle
+│   │       └── src
+│   │           └── main
+│   │               └── java
+│   │                   └── co
+│   │                       └── com
+│   │                           └── evertec
+│   │                               └── CustomerDebtsLog.java
+│   └── security
+│       └── jwt-security
+│           ├── build.gradle
+│           └── src
+│               └── main
+│                   └── java
+│                       └── co
+│                           └── com
+│                               └── evertec
+│                                   ├── adapter
+│                                   │   └── JWTAdapter.java
+│                                   ├── entrypoint
+│                                   │   └── JWTAuthorizationEntryPoint.java
+│                                   ├── exception
+│                                   │   └── JWTAuthenticationException.java
+│                                   ├── filter
+│                                   │   └── JWTAuthorizationFilter.java
+│                                   ├── mixin
+│                                   │   └── SimpleGrantedAuthorityMixin.java
+│                                   └── services
+│                                       ├── impl
+│                                       │   └── JWTServiceImpl.java
+│                                       └── JWTService.java
+├── lombok.config
+├── main.gradle
+├── README.md
+└── settings.gradle
+```
