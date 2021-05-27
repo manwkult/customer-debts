@@ -41,7 +41,7 @@ El pipeline genera el build del proyecto, la imagen de docker y la sube al conta
 
 [Modulo Administrativo de Deudas de Clientes](http://138.197.231.63/api/v1/swagger-ui.html)
 
-## Infrastructura Kubernetes
+## Infraestructura sobre Kubernetes
 
 [![Kubernetes](https://cdn.filestackcontent.com/RlUuJIVESsOwxSF6qcD9?auto=compress,format)](http://138.197.231.63/api/v1/swagger-ui.html)
 
