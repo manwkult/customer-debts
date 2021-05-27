@@ -17,12 +17,12 @@ Los entry points representan los puntos de entrada de la aplicación o el inicio
 
 ## Domain-Driven Design - Hexagonal
 
-![All text](https://miro.medium.com/max/1718/1*yR4C1B-YfMh5zqpbHzTyag.png "Title")
+![All text](https://miro.medium.com/max/1718/1*yR4C1B-YfMh5zqpbHzTyag.png "Domain-Driven Design - Hexagonal")
 
 ## CI / CD - Github Actions
 
-![All text](https://miro.medium.com/max/3404/1*k99_arb0x9B7LI4I5hhCPw.png "Title")
+![](https://miro.medium.com/max/3404/1*k99_arb0x9B7LI4I5hhCPw.png)
 
-## Infrastructura [Kubernetes](http://138.197.231.63/api/v1/swagger-ui.html "Heading link")
+## Infrastructura [Kubernetes](http://138.197.231.63/api/v1/swagger-ui.html "Customer Debts API")
 
 [![Kubernetes](https://cdn.filestackcontent.com/RlUuJIVESsOwxSF6qcD9?auto=compress,format)](http://138.197.231.63/api/v1/swagger-ui.html)
