@@ -40,7 +40,7 @@ jobs:
     - name: Build & Push Image
       uses: docker/build-push-action@v2
       with:
-          context: ./deployment/
+          context: .
           tags: ${{ github.sha }}
 
     - name: Set Up k8s - Digital Ocean
