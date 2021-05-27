@@ -106,6 +106,9 @@ jobs:
         livenessProbe-initialDelaySeconds: ${{ env.READINESS_PROBE_INITIAL_DELAY_SECONDS }}
         configmap: ${{ env.CONFIGMAP }}
 
+    - name: Validate Deployment
+      run: cat ./deployment/k8/deployment.yaml
+
     - name: Set Up k8s - Digital Ocean
       uses: matootie/dokube@v1.3.4
       with:
