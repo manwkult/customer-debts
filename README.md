@@ -241,3 +241,8 @@ Se crea un cluster de kubernetes para el despliegue de los diferentes componente
  - swagger
  - log4j2
  - jwt
+
+## Datos
+
+username: admin
+password: admin
