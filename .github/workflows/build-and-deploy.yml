@@ -82,7 +82,7 @@ jobs:
     - name: Replace Tokens
       uses: cschleiden/replace-tokens@v1
       with:
-        files: '["./deployment/k8/deployment.yaml"]'
+        files: '["./deployment/k8/*.yaml"]'
       env:
         service: ${{ env.SERVICE }}
         namespace: ${{ env.NAMESPACE }}
