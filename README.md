@@ -17,7 +17,13 @@ Los entry points representan los puntos de entrada de la aplicación o el inicio
 
 ## Domain
 
+### Model
+
+### UseCase
+
 ## Applications
+
+### App Service
 
 ## Domain-Driven Design - Hexagonal
 
