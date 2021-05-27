@@ -49,36 +49,36 @@ jobs:
 
     - name: Replace Tokens
       uses: cschleiden/replace-tokens@v1
-        with:
-          files: '["./deployment/k8/deployment.yaml"]'
-        env:
-          service: ${{ secrets.SERVICE }}
-          namespace: ${{ secrets.NAMESPACE }}
-          env: ${{ secrets.ENVIRONMENT }}
-          application-name: ${{ secrets.APPLICATION_NAME }}
-          container-port: ${{ secrets.CONTAINER_PORT }}
-          service-port: ${{ secrets.SERVICE_PORT }}
-          replicas: ${{ secrets.REPLICAS }}
-          image: ${{ secrets.IMAGE }}
-          memory-request: ${{ secrets.MEMORY_REQUEST }}
-          cpu-request: ${{ secrets.CPU_REQUEST }}
-          memory-limits: ${{ secrets.MEMORY_LIMITS }}
-          cpu-limits: ${{ secrets.CPU_LIMITS }}
-          readinessProbe-path: ${{ secrets.READINESS_PROBE_PATH }}
-          readinessProbe-port: ${{ secrets.READINESS_PROBE_PORT }}
-          readinessProbe-periodSeconds: ${{ secrets.READINESS_PROBE_PERIOD_SECONDS }}
-          readinessProbe-failureThreshold: ${{ secrets.READINESS_PROBE_FAILURE_THRESHOLD }}
-          readinessProbe-timeoutSeconds: ${{ secrets.READINESS_PROBE_TIMEOUT_SECONDS }}
-          readinessProbe-successThreshold: ${{ secrets.READINESS_PROBE_SUCCESS_THRESHOLD }}
-          readinessProbe-initialDelaySeconds: ${{ secrets.READINESS_PROBE_INITIAL_DELAY_SECONDS }}
-          livenessProbe-path: ${{ secrets.READINESS_PROBE_PATH }}
-          livenessProbe-port: ${{ secrets.READINESS_PROBE_PORT }}
-          livenessProbe-periodSeconds: ${{ secrets.READINESS_PROBE_PERIOD_SECONDS }}
-          livenessProbe-failureThreshold: ${{ secrets.READINESS_PROBE_FAILURE_THRESHOLD }}
-          livenessProbe-timeoutSeconds: ${{ secrets.READINESS_PROBE_TIMEOUT_SECONDS }}
-          livenessProbe-successThreshold: ${{ secrets.READINESS_PROBE_SUCCESS_THRESHOLD }}
-          livenessProbe-initialDelaySeconds: ${{ secrets.READINESS_PROBE_INITIAL_DELAY_SECONDS }}
-          configmap: ${{ secrets.CONFIGMAP }}
+      with:
+        files: '["./deployment/k8/deployment.yaml"]'
+      env:
+        service: ${{ secrets.SERVICE }}
+        namespace: ${{ secrets.NAMESPACE }}
+        env: ${{ secrets.ENVIRONMENT }}
+        application-name: ${{ secrets.APPLICATION_NAME }}
+        container-port: ${{ secrets.CONTAINER_PORT }}
+        service-port: ${{ secrets.SERVICE_PORT }}
+        replicas: ${{ secrets.REPLICAS }}
+        image: ${{ secrets.IMAGE }}
+        memory-request: ${{ secrets.MEMORY_REQUEST }}
+        cpu-request: ${{ secrets.CPU_REQUEST }}
+        memory-limits: ${{ secrets.MEMORY_LIMITS }}
+        cpu-limits: ${{ secrets.CPU_LIMITS }}
+        readinessProbe-path: ${{ secrets.READINESS_PROBE_PATH }}
+        readinessProbe-port: ${{ secrets.READINESS_PROBE_PORT }}
+        readinessProbe-periodSeconds: ${{ secrets.READINESS_PROBE_PERIOD_SECONDS }}
+        readinessProbe-failureThreshold: ${{ secrets.READINESS_PROBE_FAILURE_THRESHOLD }}
+        readinessProbe-timeoutSeconds: ${{ secrets.READINESS_PROBE_TIMEOUT_SECONDS }}
+        readinessProbe-successThreshold: ${{ secrets.READINESS_PROBE_SUCCESS_THRESHOLD }}
+        readinessProbe-initialDelaySeconds: ${{ secrets.READINESS_PROBE_INITIAL_DELAY_SECONDS }}
+        livenessProbe-path: ${{ secrets.READINESS_PROBE_PATH }}
+        livenessProbe-port: ${{ secrets.READINESS_PROBE_PORT }}
+        livenessProbe-periodSeconds: ${{ secrets.READINESS_PROBE_PERIOD_SECONDS }}
+        livenessProbe-failureThreshold: ${{ secrets.READINESS_PROBE_FAILURE_THRESHOLD }}
+        livenessProbe-timeoutSeconds: ${{ secrets.READINESS_PROBE_TIMEOUT_SECONDS }}
+        livenessProbe-successThreshold: ${{ secrets.READINESS_PROBE_SUCCESS_THRESHOLD }}
+        livenessProbe-initialDelaySeconds: ${{ secrets.READINESS_PROBE_INITIAL_DELAY_SECONDS }}
+        configmap: ${{ secrets.CONFIGMAP }}
 
     - name: Deploy
       run: kubectl apply -f ./deployment/k8/deployment.yaml
