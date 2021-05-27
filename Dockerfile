@@ -3,4 +3,4 @@ WORKDIR /app
 COPY /applications/app-service/build/libs/*.jar app.jar
 ENV TZ America/Bogota
 ENV JAVA_OPTS="-XX:+UseContainerSupport -XX:MaxRAMPercentage=75 -Djava.security.egd=file:/dev/./urandom"
-ENTRYPOINT ["sh","-c","java $JAVA_OPTS -jar ./app.jar"]
+ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar ./app.jar"]

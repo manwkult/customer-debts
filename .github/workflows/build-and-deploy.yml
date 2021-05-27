@@ -101,13 +101,13 @@ jobs:
         readinessProbe-timeoutSeconds: ${{ env.READINESS_PROBE_TIMEOUT_SECONDS }}
         readinessProbe-successThreshold: ${{ env.READINESS_PROBE_SUCCESS_THRESHOLD }}
         readinessProbe-initialDelaySeconds: ${{ env.READINESS_PROBE_INITIAL_DELAY_SECONDS }}
-        livenessProbe-path: ${{ env.READINESS_PROBE_PATH }}
-        livenessProbe-port: ${{ env.READINESS_PROBE_PORT }}
-        livenessProbe-periodSeconds: ${{ env.READINESS_PROBE_PERIOD_SECONDS }}
-        livenessProbe-failureThreshold: ${{ env.READINESS_PROBE_FAILURE_THRESHOLD }}
-        livenessProbe-timeoutSeconds: ${{ env.READINESS_PROBE_TIMEOUT_SECONDS }}
-        livenessProbe-successThreshold: ${{ env.READINESS_PROBE_SUCCESS_THRESHOLD }}
-        livenessProbe-initialDelaySeconds: ${{ env.READINESS_PROBE_INITIAL_DELAY_SECONDS }}
+        livenessProbe-path: ${{ env.LIVENESS_PROBE_PATH }}
+        livenessProbe-port: ${{ env.LIVENESS_PROBE_PORT }}
+        livenessProbe-periodSeconds: ${{ env.LIVENESS_PROBE_PERIOD_SECONDS }}
+        livenessProbe-failureThreshold: ${{ env.LIVENESS_PROBE_FAILURE_THRESHOLD }}
+        livenessProbe-timeoutSeconds: ${{ env.LIVENESS_PROBE_TIMEOUT_SECONDS }}
+        livenessProbe-successThreshold: ${{ env.LIVENESS_PROBE_SUCCESS_THRESHOLD }}
+        livenessProbe-initialDelaySeconds: ${{ env.LIVENESS_PROBE_INITIAL_DELAY_SECONDS }}
         configmap: ${{ env.CONFIGMAP }}
         postgres-host: ${{ env.POSTGRES_HOST }}
         postgres-port: ${{ env.POSTGRES_PORT }}

@@ -13,7 +13,7 @@ spec:
   ports:
     - name: http
       targetPort: 6379
-      port: 80
+      port: 6379
 ---
 apiVersion: apps/v1
 kind: Deployment
