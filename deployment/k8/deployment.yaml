@@ -48,6 +48,23 @@ spec:
               cpu: "#{cpu-limits}#m"
           ports:
             - containerPort: #{container-port}#
+#          readinessProbe:
+#            httpGet:
+#              path: #{readinessProbe-path}#
+#              port: #{readinessProbe-port}#
+#            periodSeconds: #{readinessProbe-periodSeconds}#
+#            timeoutSeconds: #{readinessProbe-timeoutSeconds}#
+#            successThreshold: #{readinessProbe-successThreshold}#
+#            initialDelaySeconds: #{readinessProbe-initialDelaySeconds}#
+#          livenessProbe:
+#            httpGet:
+#              path: #{livenessProbe-path}#
+#              port: #{livenessProbe-port}#
+#            initialDelaySeconds: #{livenessProbe-initialDelaySeconds}#
+#            failureThreshold: #{livenessProbe-failureThreshold}#
+#            timeoutSeconds: #{livenessProbe-timeoutSeconds}#
+#            periodSeconds: #{livenessProbe-periodSeconds}#
+#            successThreshold: #{livenessProbe-successThreshold}#
           volumeMounts:
             - name: configmap
               mountPath: /app/config
