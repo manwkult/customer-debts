@@ -33,7 +33,7 @@ jobs:
 
     - name: Build & Push Image
       uses: docker/build-push-action@v1
-        with:
+      with:
           context: ./deployment/
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
