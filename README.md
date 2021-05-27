@@ -15,6 +15,6 @@ Los driven adapter representan implementaciones externas a nuestro sistema, como
 ### Entry Points
 Los entry points representan los puntos de entrada de la aplicación o el inicio de los flujos de negocio.
 
-#### Domain-Driven Design
+## _Domain-Driven Design_
 
-[![N|Solid](https://miro.medium.com/max/1718/1*yR4C1B-YfMh5zqpbHzTyag.png "Title")
+![All text](https://miro.medium.com/max/1718/1*yR4C1B-YfMh5zqpbHzTyag.png "Title")
