@@ -32,7 +32,7 @@ jobs:
       run: ./gradlew test
 
     - name: Build & Push Image
-      uses: docker/build-push-action@v1
+      uses: docker/build-push-action@v2
       with:
           context: ./deployment/
           username: ${{ secrets.DOCKER_USERNAME }}
