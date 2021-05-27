@@ -34,7 +34,6 @@ spec:
         app: #{project-name}#
         pod: #{service}#-pod
         app.evertec.com.co/application-name: #{application-name}#
-        version: #{version}#
     spec:
       containers:
         - name: #{service}#-container
@@ -53,6 +52,7 @@ spec:
               path: #{readinessProbe-path}#
               port: #{readinessProbe-port}#
             periodSeconds: #{readinessProbe-periodSeconds}#
+            failureThreshold: #{readinessProbe-failureThreshold}#
             timeoutSeconds: #{readinessProbe-timeoutSeconds}#
             successThreshold: #{readinessProbe-successThreshold}#
             initialDelaySeconds: #{readinessProbe-initialDelaySeconds}#

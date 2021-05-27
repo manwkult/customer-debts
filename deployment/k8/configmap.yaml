@@ -4,7 +4,7 @@ metadata:
   name: #{configmap}#
   namespace: #{namespace}#
 data:
-  CustomerDebt.yaml: |-
+  application.yaml: |-
     server:
       port: 8080
       servlet:
@@ -20,7 +20,7 @@ data:
         hibernate:
           ddl-auto: validate
       datasource:
-        url: jdbc:postgresql:// #{postgres-host}:#{postgres-port}/#{postgres-dbname}
+        url: jdbc:postgresql://#{postgres-host}:#{postgres-port}/#{postgres-dbname}
         username: #{postgres-username}
         password: #{postgres-password}
         driverClassName: org.postgresql.Driver
