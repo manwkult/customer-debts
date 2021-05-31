@@ -4,30 +4,33 @@
 
 Empezaremos por explicar los diferentes componentes del proyectos y partiremos de los componentes externos, continuando con los componentes core de negocio (dominio) y por Último el inicio y configuración de la aplicación.
 
-## Infrastructure
+# Arquitectura
 
-### Helpers
-En el apartado de helpers tendremos utilidades generales para los Driven Adapters y Entry Points.
-
-### Driven Adapters
-Los driven adapter representan implementaciones externas a nuestro sistema, como lo son conexiones a servicios rest, soap, bases de datos, lectura de archivos planos, y en concreto cualquier origen y fuente de datos con la que debamos interactuar.
-
-### Entry Points
-Los entry points representan los puntos de entrada de la aplicación o el inicio de los flujos de negocio.
+![Clean Architecture](https://miro.medium.com/max/1400/1*ZdlHz8B0-qu9Y-QO3AXR_w.png)
 
 ## Domain
 
-### Model
+Es el módulo más interno de la arquitectura, pertenece a la capa del dominio y encapsula la lógica y reglas del negocio mediante modelos y entidades del dominio.
 
-### UseCase
+## Usecases
 
-## Applications
+Este módulo gradle perteneciente a la capa del dominio, implementa los casos de uso del sistema, define lógica de aplicación y reacciona a las invocaciones desde el módulo de entry points, orquestando los flujos hacia el módulo de entities.
 
-### App Service
+## Infrastructure
 
-## Domain-Driven Design - Hexagonal
+### Helpers
 
-![All text](https://miro.medium.com/max/1718/1*yR4C1B-YfMh5zqpbHzTyag.png "Domain-Driven Design - Hexagonal")
+En el apartado de helpers tendremos utilidades generales para los Driven Adapters y Entry Points.
+
+### Driven Adapters
+
+Los driven adapter representan implementaciones externas a nuestro sistema, como lo son conexiones a servicios rest,
+soap, bases de datos, lectura de archivos planos, y en concreto cualquier origen y fuente de datos con la que debamos
+interactuar.
+
+### Entry Points
+
+Los entry points representan los puntos de entrada de la aplicaci�n o el inicio de los flujos de negocio.
 
 ## CI / CD - Github Actions
 
