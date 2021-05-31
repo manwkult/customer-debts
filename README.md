@@ -237,6 +237,8 @@ Se crea un cluster de kubernetes para el despliegue de los diferentes componente
 
  - spring boot
  - gradle
+ - jpa
+ - hibernate
  - validations
  - i18n
  - redis
