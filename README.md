@@ -30,7 +30,7 @@ interactuar.
 
 ### Entry Points
 
-Los entry points representan los puntos de entrada de la aplicaci�n o el inicio de los flujos de negocio.
+Los entry points representan los puntos de entrada de la aplicación o el inicio de los flujos de negocio.
 
 ## CI / CD - Github Actions
 
