@@ -251,16 +251,18 @@ Se crea un cluster de kubernetes para el despliegue de los diferentes componente
 
 [Modulo Administrativo de Deudas de Clientes](http://138.197.231.63/api/v1/swagger-ui.html)
 
-## Datos de autenticación
+## Datos de Autenticación
 
 username: admin
 password: admin
 
-## Para correr el proyecto localmente
+## Instrucciones para correr el proyecto localmente
 
 Primeramente debemos de crear los contenedores de Redis y Postgres para la persistencia de los datos.
 
 _Docker debera de estar instalado en la maquina_
+
+[Install Docker Desktop on Windows](https://docs.docker.com/docker-for-windows/install/)
 
 ```bash
 docker volume create --name=postgres_data
@@ -285,3 +287,7 @@ Una vez terminado este proceso podremos arrancar nuestra aplicación (Cabe anota
 ```bash
 gradlew bootRun
 ```
+
+El servicio REST se podra validar en el siguiente link una vez haya levantado exitosamente de manera local
+
+[http://localhost:8080/api/v1/swagger-ui.html](http://localhost:8080/api/v1/swagger-ui.html)
