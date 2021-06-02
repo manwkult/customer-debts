@@ -247,7 +247,38 @@ Se crea un cluster de kubernetes para el despliegue de los diferentes componente
  - log4j2
  - jwt
 
-## Datos
+## Link del proyecto publicado
+
+[Modulo Administrativo de Deudas de Clientes](http://138.197.231.63/api/v1/swagger-ui.html)
+
+## Datos de autenticación
 
 username: admin
 password: admin
+
+## Para correr el proyecto localmente
+
+Primeramente debemos de crear los contenedores de Redis y Postgres para la persistencia de los datos.
+
+_Docker debera de estar instalado en la maquina_
+
+```bash
+docker volume create --name=postgres_data
+```
+```bash
+docker run -d --name postgres --restart always -p 5432:5432 -e POSTGRES_PASSWORD=Z3vAZgz87w -e POSTGRES_DB=customerdebtsdb -e PGDATA=/var/lib/postgresql/data/pgdata -v postgres_data:/var/lib/postgresql/data postgres
+```
+```bashdocker run -d --name redis --restart always -p 6379:6379 redis
+```
+
+Despues de creados los contenedores corremos el comando de gradle para limpiar el proyecto, descargar las dependencias y generar el build
+
+```bash
+gradlew clean build
+```
+
+Una vez terminado este proceso podremos arrancar nuestra aplicación (Cabe anotar que esta esta construida con JPA y Hibernate y contiene en el application.yaml la instrucción de ddl-auto en update, por ende al levantar el proyecto este mismo creara las tablas)
+
+```bash
+gradlew bootRun
+```
