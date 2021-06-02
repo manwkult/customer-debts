@@ -265,10 +265,13 @@ _Docker debera de estar instalado en la maquina_
 ```bash
 docker volume create --name=postgres_data
 ```
+
 ```bash
 docker run -d --name postgres --restart always -p 5432:5432 -e POSTGRES_PASSWORD=Z3vAZgz87w -e POSTGRES_DB=customerdebtsdb -e PGDATA=/var/lib/postgresql/data/pgdata -v postgres_data:/var/lib/postgresql/data postgres
 ```
-```bashdocker run -d --name redis --restart always -p 6379:6379 redis
+
+```bash
+docker run -d --name redis --restart always -p 6379:6379 redis
 ```
 
 Despues de creados los contenedores corremos el comando de gradle para limpiar el proyecto, descargar las dependencias y generar el build
