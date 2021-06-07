@@ -291,3 +291,9 @@ gradlew bootRun
 El servicio REST se podra validar en el siguiente link una vez haya levantado exitosamente de manera local
 
 [http://localhost:8080/api/v1/swagger-ui.html](http://localhost:8080/api/v1/swagger-ui.html)
+
+## Instrucciones para interactuar con la autenticación JWT
+
+Deberas de autenticarte con los datos que estan en este documento para poder obtener el JWT Token el cual se debe de agregar como encabezado en la opcion de *Autorize* anticipado por *Bearer *
+
+![](https://miro.medium.com/max/1600/1*IrmDxmBcpvBUltIO4UQN5Q.gif)
