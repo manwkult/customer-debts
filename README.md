@@ -296,4 +296,8 @@ El servicio REST se podra validar en el siguiente link una vez haya levantado ex
 
 Deberas de autenticarte con los datos que estan en este documento para poder obtener el JWT Token el cual se debe de agregar como encabezado en la opcion de **Autorize** anticipado por **Bearer**
 
+```bash
+Bearer ${token}
+```
+
 ![](https://miro.medium.com/max/1600/1*IrmDxmBcpvBUltIO4UQN5Q.gif)
